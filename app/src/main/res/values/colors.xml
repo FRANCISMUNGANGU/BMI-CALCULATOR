@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Light Theme Colors -->
+    <color name="primary_light">#006B5F</color> <!-- Stronger Mint for visibility -->
+    <color name="on_primary_light">#FFFFFF</color>
+    <color name="secondary_light">#60527A</color>
+    <color name="background_light">#FBFDFD</color>
+    <color name="surface_light">#F1F4F4</color>
+    <color name="header_light">#006B5F</color> <!-- Toolbar color -->
+
+    <!-- Dark/Night Theme Colors -->
+    <color name="primary_dark">#80CBC4</color> <!-- Desaturated Mint for Dark mode -->
+    <color name="on_primary_dark">#FFFFFF</color>
+    <color name="secondary_dark">#C9BFE4</color>
+    <color name="background_dark">#2A2A2A</color> <!-- Deep Slate -->
+    <color name="surface_dark">#1E1E1E</color> <!-- Slightly lighter for cards/elevation -->
+    <color name="header_dark">#1E1E1E</color> <!-- Dark toolbar to blend with background -->
 </resources>
