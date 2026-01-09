@@ -23,6 +23,19 @@ public class  MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        btnCalculate.setOnClickListener(v -> {
+            if (!validateInput()) {
+                if (etWeight.getText() == null || etWeight.getText().toString().trim().isEmpty()) {
+                    etWeight.setError("Required");
+                }
+                if (etHeight.getText() == null || etHeight.getText().toString().trim().isEmpty()) {
+                    etHeight.setError("Required");
+                }
+            }
+        });
+
+
+
 
 //        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         EdgeToEdge.enable(this);
