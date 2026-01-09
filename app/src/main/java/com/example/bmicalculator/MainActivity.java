@@ -23,6 +23,14 @@ public class  MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+//       WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+
+        etWeight = findViewById(R.id.etWeight);
+        etHeight = findViewById(R.id.etHeight);
+        btnCalculate = findViewById(R.id.btnCalculate);
+
         btnCalculate.setOnClickListener(v -> {
             if (!validateInput()) {
                 if (etWeight.getText() == null || etWeight.getText().toString().trim().isEmpty()) {
@@ -33,16 +41,6 @@ public class  MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
-//        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
-        etWeight = findViewById(R.id.etWeight);
-        etHeight = findViewById(R.id.etHeight);
-        btnCalculate = findViewById(R.id.btnCalculate);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
