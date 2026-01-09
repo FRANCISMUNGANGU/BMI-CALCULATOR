@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-
+        /*
+         -> Example usage of BMICalculator.calculateBMI(float weight, float height);
+        float bmi = BMICalculator.calculateBMI(1.1f, 2.2f);
+        */
     }
 }
