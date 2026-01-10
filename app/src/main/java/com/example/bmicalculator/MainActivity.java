@@ -3,19 +3,21 @@ package com.example.bmicalculator;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
-import android.view.Window;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.button.MaterialButton;
+
+import java.util.Locale;
 
 public class  MainActivity extends AppCompatActivity {
     TextInputEditText etWeight;
     TextInputEditText etHeight;
     MaterialButton btnCalculate;
+    TextView tvResult;
 
 
 
@@ -30,6 +32,7 @@ public class  MainActivity extends AppCompatActivity {
         etWeight = findViewById(R.id.etWeight);
         etHeight = findViewById(R.id.etHeight);
         btnCalculate = findViewById(R.id.btnCalculate);
+        tvResult = findViewById(R.id.tvResult);
 
         btnCalculate.setOnClickListener(v -> {
             if (!validateInput()) {
@@ -39,6 +42,22 @@ public class  MainActivity extends AppCompatActivity {
                 if (etHeight.getText() == null || etHeight.getText().toString().trim().isEmpty()) {
                     etHeight.setError("Required");
                 }
+                return; // Stop if validation fails
+            }
+            try {
+                float weight = Float.parseFloat(String.valueOf(etWeight.getText()));
+                float height = Float.parseFloat(String.valueOf(etHeight.getText()));
+
+                float bmi = BMICalculator.calculateBMI(weight, height);
+                String category = BMICalculator.getCategory(bmi);
+
+                // Display the final result in the TextView
+                tvResult.setText(String.format(Locale.US, "BMI: %.2f\nCategory: %s", bmi, category));
+
+            } catch (NumberFormatException e) {
+                etWeight.setError("Invalid number");
+            } catch (IllegalArgumentException e) {
+                tvResult.setText(e.getMessage());
             }
         });
 
